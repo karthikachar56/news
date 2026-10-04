@@ -1,0 +1,22 @@
+{
+  "name": "nexus-soc-management",
+  "version": "2.0.0",
+  "description": "NEXUS PRIME - Advanced Cyber Operations & Infrastructure Management Suite",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.22.3"
+  },
+  "keywords": [
+    "cybersecurity",
+    "soc",
+    "management",
+    "network",
+    "dashboard"
+  ],
+  "author": "Antigravity AI",
+  "license": "MIT"
+}
