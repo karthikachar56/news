@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXUS ADMIN - Device & MAC Address Security Control Center</title>
+  <meta name="description" content="Dedicated administrative panel for real-time device tracking, IP monitoring, MAC address resolution, and network access control.">
+  <link rel="stylesheet" href="admin.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔒</text></svg>">
+</head>
+<body>
+
+  <!-- ADMIN LOGIN MODAL -->
+  <div class="admin-login-modal" id="loginModal">
+    <div class="login-card">
+      <div class="login-header">
+        <div class="shield-icon">🔒</div>
+        <h2>ADMINISTRATOR LOGIN</h2>
+        <p>Enter your security credentials to access the Device & MAC Address Control Center</p>
+      </div>
+
+      <form id="loginForm" class="login-form">
+        <div class="input-group">
+          <label>Username</label>
+          <input type="text" id="adminUsername" value="admin" required>
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" id="adminPassword" value="admin123" required>
+        </div>
+
+        <button type="submit" class="btn-admin-primary">Authenticate Access</button>
+
+        <div style="font-size:0.75rem; color:#64748b; text-align:center; margin-top:0.5rem; font-family:monospace;">
+          Default Admin Login: <strong>admin</strong> / <strong>admin123</strong>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADMIN DASHBOARD CONTAINER -->
+  <div class="admin-container" id="adminDashboard" style="display:none;">
+
+    <!-- Top Admin Header Bar -->
+    <header class="admin-header">
+      <div class="admin-brand">
+        <span class="brand-badge">ADMIN CONTROL</span>
+        <h1>Device IP & MAC Monitor</h1>
+      </div>
+
+      <div class="admin-meta">
+        <span class="pulse-status">● REAL-TIME SSE STREAMING</span>
+        <span class="server-mac-badge" id="serverMacDisplay">Server MAC: Loading...</span>
+        <button class="btn-logout" id="logoutBtn">🚪 Logout</button>
+      </div>
+    </header>
+
+    <!-- Stat Metrics Cards -->
+    <div class="admin-stats-grid">
+      <div class="admin-stat-card">
+        <div class="stat-label">Total Connected Devices</div>
+        <div class="stat-value" id="statTotalDev">0</div>
+        <div class="stat-sub">Tracked across sessions</div>
+      </div>
+
+      <div class="admin-stat-card">
+        <div class="stat-label">Active Online IPs</div>
+        <div class="stat-value text-emerald" id="statActiveDev">0</div>
+        <div class="stat-sub">Live active requests</div>
+      </div>
+
+      <div class="admin-stat-card">
+        <div class="stat-label">Unique MAC Addresses</div>
+        <div class="stat-value text-cyan" id="statUniqueMac">0</div>
+        <div class="stat-sub">Resolved via ARP Table</div>
+      </div>
+
+      <div class="admin-stat-card">
+        <div class="stat-label">Blacklisted / Blocked IPs</div>
+        <div class="stat-value text-rose" id="statBlockedCount">0</div>
+        <div class="stat-sub">Access forbidden</div>
+      </div>
+    </div>
+
+    <!-- Main Grid: Live Device Table & Action Panel -->
+    <div class="admin-main-grid">
+
+      <!-- Connected Devices Table Section -->
+      <div class="admin-panel-card">
+        <div class="panel-header">
+          <h3>🖥️ Live Connected Devices (IP & MAC Address Matrix)</h3>
+          <div style="display:flex; gap:0.5rem;">
+            <input type="text" id="deviceSearch" placeholder="Filter IP, MAC, OS..." class="admin-input-sm">
+            <button class="btn-admin-sm" id="refreshDevicesBtn">🔄 Refresh</button>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="admin-table" id="devicesTable">
+            <thead>
+              <tr>
+                <th>Status</th>
+                <th>Client IP Address</th>
+                <th>Resolved MAC Address</th>
+                <th>Device / OS</th>
+                <th>Browser</th>
+                <th>Page Visited</th>
+                <th>Requests</th>
+                <th>Last Active</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Side Controls: Broadcast & Blacklist -->
+      <div class="admin-side-col">
+
+        <!-- Broadcast Alert Console -->
+        <div class="admin-panel-card">
+          <div class="panel-header">
+            <h3>📢 Broadcast Alert to Main Website</h3>
+          </div>
+          <form id="broadcastForm" style="display:flex; flex-direction:column; gap:0.75rem;">
+            <p style="font-size:0.82rem; color:#94a3b8;">Send a real-time warning popup alert to every device currently browsing the main news website.</p>
+            <textarea id="broadcastMsg" placeholder="Type alert message (e.g. System maintenance scheduled in 10 minutes)..." class="admin-textarea" required></textarea>
+            <button type="submit" class="btn-admin-primary">⚡ Send Broadcast Alert</button>
+          </form>
+        </div>
+
+        <!-- Blacklisted IPs List -->
+        <div class="admin-panel-card">
+          <div class="panel-header">
+            <h3>⛔ Blacklisted IP Addresses</h3>
+          </div>
+          <div id="blockedIpList" style="display:flex; flex-direction:column; gap:0.5rem; max-height:220px; overflow-y:auto;">
+            <!-- Filled dynamically -->
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="adminToastContainer"></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
