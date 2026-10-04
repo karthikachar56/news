@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE GLOBAL CHRONICLE - Journalism for Tomorrow</title>
+  <meta name="description" content="Independent global news reporting on Artificial Intelligence, Quantum Computing, Deep Space Exploration, Clean Energy, and World Affairs.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📰</text></svg>">
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <div class="top-utility-bar">
+    <div class="top-bar-left">
+      <span>📅 <span id="currentDateText">Sunday, October 4, 2026</span></span>
+      <span>📍 New York • 21°C ☀️ Clear</span>
+      <span>🌐 Edition: Global / International</span>
+    </div>
+    <div class="top-bar-right">
+      <button class="theme-toggle-btn" id="themeToggleBtn">🌙 Dark Mode</button>
+      <button class="theme-toggle-btn" id="listenPodcastBtn">🎙️ Listen to Daily Briefing</button>
+    </div>
+  </div>
+
+  <!-- Breaking News Ticker -->
+  <div class="ticker-wrapper">
+    <div class="ticker-badge">🔴 BREAKING NEWS</div>
+    <div class="ticker-content">
+      <div class="ticker-text" id="tickerText">
+        Scientists achieve 48-hour continuous fusion plasma gain with net Q-factor 15.2 &nbsp; • &nbsp; Optical Quantum AI Processor solves 4,000-year protein folding simulation in 14 seconds &nbsp; • &nbsp; Orbital Observatory detects liquid water cloud signatures on exoplanet K2-18b
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Masthead Header -->
+  <header class="masthead">
+    <h1 class="masthead-title">The Global Chronicle</h1>
+    <div class="masthead-tagline">Truth • Technology • Innovation • International Journal</div>
+  </header>
+
+  <!-- Sticky Category Navigation -->
+  <nav class="sticky-nav">
+    <ul class="category-menu" id="categoryMenu">
+      <li class="category-item active" data-category="All Stories"><button>All Stories</button></li>
+      <li class="category-item" data-category="Technology & AI"><button>Technology & AI</button></li>
+      <li class="category-item" data-category="Science & Cosmos"><button>Science & Cosmos</button></li>
+      <li class="category-item" data-category="Climate & Energy"><button>Climate & Energy</button></li>
+      <li class="category-item" data-category="Global Economy"><button>Global Economy</button></li>
+      <li class="category-item" data-category="Biotech & Health"><button>Biotech & Health</button></li>
+    </ul>
+
+    <div class="nav-search">
+      <span class="icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Search news stories...">
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="main-container">
+
+    <!-- Hero Lead & Trending Split -->
+    <div class="hero-split-grid">
+      
+      <!-- Featured Lead Story Card -->
+      <article class="hero-card" id="heroCard">
+        <div class="hero-image-wrapper">
+          <img src="images/quantum.jpg" alt="Quantum Processor" id="heroImage">
+          <span class="category-badge" id="heroCategory">Technology & AI</span>
+        </div>
+        <div class="hero-content">
+          <h2 class="hero-headline" id="heroTitle">The Quantum Leap: Researchers Unveil 10,000-Qubit Optical AI Matrix</h2>
+          <p class="hero-subtitle" id="heroSubtitle">A landmark study published in Nature reveals how photonics and optical quantum superposition have unlocked instantaneous neural processing.</p>
+          <div class="author-meta">
+            <div class="author-info">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" alt="Author" class="author-avatar" id="heroAvatar">
+              <div>
+                <div class="author-name" id="heroAuthor">Dr. Elena Vance</div>
+                <div style="font-size:0.75rem;">Senior Tech Editor</div>
+              </div>
+            </div>
+            <div>
+              <span>⏱️ 6 min read</span> &nbsp;•&nbsp; <span>👁️ 142.5K views</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Trending Stories Sidebar -->
+      <aside class="sidebar-box">
+        <h3 class="section-header-title">🔥 Most Read Stories</h3>
+        <ul class="trending-list" id="trendingList">
+          <!-- Dynamically filled -->
+        </ul>
+      </aside>
+
+    </div>
+
+    <!-- Article Grid Bar -->
+    <div class="grid-header-bar">
+      <h3 class="section-header-title" id="gridTitle">Latest News & Deep Dives</h3>
+      <span style="font-size:0.85rem; color:var(--text-dim); font-family:var(--font-mono);" id="articleCountText">5 Articles</span>
+    </div>
+
+    <!-- Article Cards Grid -->
+    <section class="article-grid" id="articleGrid">
+      <!-- Dynamically rendered -->
+    </section>
+
+    <!-- Newsletter Box -->
+    <section class="newsletter-card">
+      <h2 class="newsletter-title">Stay Ahead of Tomorrow</h2>
+      <p style="color:var(--text-muted); max-width:600px;">Get our award-winning daily intelligence briefing delivered straight to your inbox every morning at 6:00 AM EST.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" id="newsletterEmail" placeholder="Enter your email address..." required>
+        <button type="submit" class="btn-primary">Subscribe</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Article Reader Modal Viewer -->
+  <div class="modal-overlay" id="articleModal">
+    <div class="modal-content-box">
+      <button class="modal-close-btn" id="modalCloseBtn">✕</button>
+
+      <div class="modal-body">
+        <span class="category-badge" id="modalCategory">Technology & AI</span>
+        <h1 class="modal-headline" id="modalTitle">Article Headline</h1>
+        
+        <div class="author-meta" style="border:none; padding:0;">
+          <div class="author-info">
+            <img src="" alt="Author" class="author-avatar" id="modalAvatar">
+            <div>
+              <div class="author-name" id="modalAuthor">Author Name</div>
+              <div style="font-size:0.75rem;" id="modalDate">OCTOBER 4, 2026</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:1rem; align-items:center;">
+            <button class="theme-toggle-btn" id="listenArticleBtn">🔊 Read Aloud</button>
+            <button class="theme-toggle-btn" id="likeBtn">❤️ <span id="modalLikesCount">0</span></button>
+          </div>
+        </div>
+
+        <img src="" alt="Article Banner" id="modalImage" style="width:100%; max-height:400px; object-fit:cover; border-radius:var(--radius-md);">
+
+        <!-- Reader Toolbar -->
+        <div class="reader-toolbar">
+          <span style="font-size:0.85rem; color:var(--text-muted);">Text Size:</span>
+          <div style="display:flex; gap:0.5rem;">
+            <button class="theme-toggle-btn" id="fontSmallerBtn">A-</button>
+            <button class="theme-toggle-btn" id="fontBiggerBtn">A+</button>
+          </div>
+        </div>
+
+        <div class="modal-article-text" id="modalContent">
+          <!-- Full Article Body -->
+        </div>
+
+        <!-- Comment Section -->
+        <div style="margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--border-subtle);">
+          <h3 style="font-family:var(--font-serif); margin-bottom:1rem;">Discussion & Comments</h3>
+          
+          <form id="commentForm" style="display:flex; gap:0.75rem; margin-bottom:1.5rem;">
+            <input type="text" id="commentInput" placeholder="Add a thoughtful comment..." style="flex:1; background:var(--bg-card); border:1px solid var(--border-subtle); padding:0.6rem 1rem; border-radius:var(--radius-sm); color:var(--text-main);" required>
+            <button type="submit" class="btn-primary" style="padding:0.6rem 1.25rem;">Post</button>
+          </form>
+
+          <div id="modalCommentsList" style="display:flex; flex-direction:column; gap:1rem;">
+            <!-- Comments -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="portal-footer">
+    <div class="footer-content">
+      <div>
+        <h2 style="font-family:var(--font-serif); font-size:1.6rem; color:var(--text-main); font-weight:800;">The Global Chronicle</h2>
+        <p style="margin-top:0.4rem;">Independent Journalism & Global Technological Intelligence</p>
+      </div>
+      <div>
+        <span>© 2026 The Global Chronicle Inc. All Rights Reserved.</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Built with High Performance Single-Page Architecture</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
