@@ -19,15 +19,15 @@
         <p>Enter your security credentials to access the Device & MAC Address Control Center</p>
       </div>
 
-      <form id="loginForm" class="login-form">
+      <form id="loginForm" class="login-form" autocomplete="off">
         <div class="input-group">
           <label>Username</label>
-          <input type="text" id="adminUsername" placeholder="Enter username" required autofocus>
+          <input type="text" id="adminUsername" placeholder="Enter username" autocomplete="off" required autofocus>
         </div>
 
         <div class="input-group">
           <label>Password</label>
-          <input type="password" id="adminPassword" placeholder="Enter password" required>
+          <input type="password" id="adminPassword" placeholder="Enter password" autocomplete="new-password" required>
         </div>
 
         <button type="submit" class="btn-admin-primary">Authenticate Access</button>
